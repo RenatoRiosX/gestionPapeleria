@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LogicaAplicacion.DTOs.PedidoDTOs.PedidoParaListaDto>
+
+<h2>Listar Pedidos Pendientes por Fecha de Creación</h2>
+<partial name="_Mensajes" />
+<div class="row">
+	<div class="col-md-4">
+		<form method="post">
+			<div class="form-group">
+				<label for="fecha">Fecha de creación del pedido:</label>
+				<input type="date" id="fecha" name="fecha" class="form-control"/>
+			</div>
+			<button type="submit" class="btn btn-primary mt-2">Filtrar</button>
+		</form>
+	</div>
+	<div class="col-md-12">
+		@if (Model != null && Model.Any())
+		{
+			<table class="table">
+				<thead>
+				<tr>
+					<th>Id</th>
+					<th>Fecha Emisión Pedido</th>
+					<th>Fecha Prometida Entrega</th>
+					<th>Cliente</th>
+					<th>Costo Total</th>
+				</tr>
+				</thead>
+				<tbody>
+					@foreach (var pedido in Model)
+					{
+						<tr>
+							<td>@pedido.Id</td>
+							<td>@pedido.FechaEmisionPedido</td>
+							<td>@pedido.FechaPrometidaEntrega</td>
+							<td>@pedido.Cliente.RazonSocial</td>
+							<td>@pedido.CostoTotal</td>
+							<td>
+								<a asp-action="AnularPedido" asp-route-id="@pedido.Id" class="btn btn-danger">Anular</a>
+							</td>
+
+						</tr>
+					}
+				
+				</tbody>
+			</table>
+		}
+	</div>
+
+	
+</div>

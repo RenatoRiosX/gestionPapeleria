@@ -1,0 +1,56 @@
+﻿@model IEnumerable<LogicaAplicacion.DTOs.ClienteDTOs.ClienteDto>
+
+@{
+    ViewData["Title"] = "Listar Cliente";
+}
+
+<h1>Listar Cliente</h1>
+<partial name="_Mensajes" />
+<div class="container mt-5">
+    <form method="post" action="/Cliente/BuscarCliente">
+	    <div class="form-group">
+		    <label for="textoInput">Razon Social</label>
+		    <input type="text" class="form-control" id="textoInput" name="razonSocial" placeholder="Ingresa una razon social">
+		    <button type="submit" class="btn btn-primary mt-2">Filtrar por Razon Social</button>
+	    </div>
+	    <div class="form-group">
+		    <label for="numeroInput">Monto a superar</label>
+		    <input type="number" class="form-control" id="numeroInput" name="monto" placeholder="Ingresa un monto">
+		    <button type="submit" class="btn btn-primary mt-2">Filtrar por Pedidos que superen Monto</button>
+	    </div>
+    </form>
+
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RazonSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rut)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RazonSocial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rut)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
