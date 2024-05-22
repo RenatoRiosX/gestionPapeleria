@@ -14,14 +14,15 @@ namespace Web.Controllers
     public class ArticuloController : Controller
     {
 
-        private IRepositorioArticulos _repositorioArticulos = new RepositorioArticulosEF();
+        private IRepositorioArticulos _repositorioArticulos;
         private IAltaArticulo _alta;
         private IGetAllArticulos _getAllArticulos;
 
-        public ArticuloController()
+        public ArticuloController(IRepositorioArticulos repositorioArticulos, IAltaArticulo altaArticulo, IGetAllArticulos getAllArticulos)
         {
-            _alta = new AltaArticulo(_repositorioArticulos);
-            _getAllArticulos = new GetAllArticulos(_repositorioArticulos);
+            _repositorioArticulos = repositorioArticulos;
+            _alta = altaArticulo;
+            _getAllArticulos = getAllArticulos;
 
         }
 

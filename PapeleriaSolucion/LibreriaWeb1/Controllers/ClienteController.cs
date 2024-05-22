@@ -18,16 +18,18 @@ namespace Web.Controllers
     public class ClienteController : Controller
     {
 
-        private IRepositorioClientes _repositorioClientes = new RepositorioClientesEF();
+        private IRepositorioClientes _repositorioClientes;
         private IBuscarClientePorRazonSocial _buscarCliente;
         private IBuscarClientePorMonto _buscarClientePorMonto;
         private IGetAllClientes _getAllClientes;
 
-        public ClienteController()
+        public ClienteController(IRepositorioClientes repositorioClientes, IBuscarClientePorRazonSocial buscarClientePorRazonSocial, 
+            IBuscarClientePorMonto buscarClientePorMonto, IGetAllClientes getAllClientes)
         {
-            _buscarCliente = new BuscarClientePorRazonSocial(_repositorioClientes);
-            _buscarClientePorMonto = new BuscarClientePorMonto(_repositorioClientes);
-            _getAllClientes = new GetAllClientes(_repositorioClientes);
+            _repositorioClientes = repositorioClientes;
+            _buscarCliente = buscarClientePorRazonSocial;
+            _buscarClientePorMonto = buscarClientePorMonto;
+            _getAllClientes = getAllClientes;
         }
 
         public ActionResult ListarCliente()

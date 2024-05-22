@@ -21,6 +21,7 @@ builder.Services.AddSwaggerGen();
 //Se inyecta el repositorio en el controlador
 builder.Services.AddScoped<IRepositorioArticulos, RepositorioArticulosEF>();
 builder.Services.AddScoped<IRepositorioClientes, RepositorioClientesEF>();
+builder.Services.AddScoped<IRepositorioPedidos, RepositorioPedidosEF>();
 
 
 //Casos de uso 

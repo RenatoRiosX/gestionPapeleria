@@ -17,18 +17,18 @@ namespace Web.Controllers
 {
     public class AdministradorController : Controller
     {
-        private IRepositorioUsuarios _repositorioUsuarios = new RepositorioUsuariosEF();
+        private IRepositorioUsuarios _repositorioUsuarios;
 		private IAltaUsuario _alta;
         private IEditarUsuario _editarUsuario;
         private IBajaUsuario _baja;
         
 
-        public AdministradorController()
-        {
-           _alta = new AltaUsuario(_repositorioUsuarios);
-           _baja = new BajaUsuario(_repositorioUsuarios);
-           _editarUsuario = new EditarUsuario(_repositorioUsuarios);
-           
+        public AdministradorController(IRepositorioUsuarios repositorioUsuarios, IAltaUsuario altaUsuario, IEditarUsuario editarUsuario, IBajaUsuario bajaUsuario)
+        { 
+            _repositorioUsuarios = repositorioUsuarios;
+            _alta = altaUsuario;
+            _editarUsuario = editarUsuario;
+            _baja = bajaUsuario;
         }
         // GET: AdministradorController
         public ActionResult Index()

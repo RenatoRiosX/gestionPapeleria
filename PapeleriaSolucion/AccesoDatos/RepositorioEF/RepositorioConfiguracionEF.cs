@@ -13,7 +13,10 @@ namespace AccesoDatos.RepositorioEF
 	public class RepositorioConfiguracionEF : IRepositorioConfiguracion
 	{
 
-		private Context _db = new Context();
+		private Context _db;
+		public RepositorioConfiguracionEF (){
+            _db = new Context();
+        }
 		public void Add(Configuracion configuracion)
 		{
 			try

@@ -13,7 +13,7 @@ namespace AccesoDatos.RepositorioEF
 {
     public class RepositorioClientesEF : IRepositorioClientes
     {
-	    private Context _db = new Context();
+	    private Context _db;
 
         public RepositorioClientesEF()
         {

@@ -15,16 +15,17 @@ namespace WebApi.Controllers
 	public class ArticuloController : ControllerBase
 	{
 
-		private IRepositorioArticulos _repositorioArticulos = new RepositorioArticulosEF();
-		private IMostrarArticulos _mostrarArticulos;
+        private readonly IRepositorioArticulos _repositorioArticulos;
+        private readonly IMostrarArticulos _mostrarArticulos;
 
-		public ArticuloController()
-		{
-			_mostrarArticulos = new MostrarArticulos(_repositorioArticulos);
-		}
+        public ArticuloController(IRepositorioArticulos repositorioArticulos, IMostrarArticulos mostrarArticulos)
+        {
+            _repositorioArticulos = repositorioArticulos;
+            _mostrarArticulos = mostrarArticulos;
+        }
 
-		// GET: api/<ArticuloController>
-		[HttpGet]
+        // GET: api/<ArticuloController>
+        [HttpGet]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]

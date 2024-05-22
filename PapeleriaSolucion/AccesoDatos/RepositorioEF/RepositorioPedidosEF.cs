@@ -8,7 +8,12 @@ namespace AccesoDatos.RepositorioEF
 {
     public class RepositorioPedidosEF : IRepositorioPedidos
     {
-	    private Context _db = new Context();
+	    private Context _db;
+
+        public RepositorioPedidosEF()
+        {
+            _db = new Context();
+        }
 		public void Add(Pedido pedido)
         {
 	        try

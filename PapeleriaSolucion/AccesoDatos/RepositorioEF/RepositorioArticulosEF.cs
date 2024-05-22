@@ -9,7 +9,13 @@ namespace AccesoDatos.RepositorioEF
 {
     public class RepositorioArticulosEF : IRepositorioArticulos
     {
-        private Context _db = new Context();
+        private Context _db;
+
+        public RepositorioArticulosEF()
+        {
+            _db = new Context();
+        }
+
         public void Add(Articulo articulo)
         {
             if (articulo == null)

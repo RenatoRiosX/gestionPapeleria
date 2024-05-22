@@ -23,13 +23,16 @@ builder.Services.AddScoped<IRepositorioArticulos, RepositorioArticulosEF>();
 builder.Services.AddScoped<IRepositorioClientes, RepositorioClientesEF>();
 builder.Services.AddScoped<IRepositorioPedidos, RepositorioPedidosEF>();
 builder.Services.AddScoped<IRepositorioUsuarios, RepositorioUsuariosEF>();
+builder.Services.AddScoped<IRepositorioConfiguracion, RepositorioConfiguracionEF>();
 
 //Casos de uso 
 //Ej: builder.Services.AddScoped<ICrearAdministrador, CrearAdministradorCU>(); CU hace referencia a Caso de Uso
 builder.Services.AddScoped<ILogin, Login>();
 builder.Services.AddScoped<IAltaUsuario, AltaUsuario>();
 builder.Services.AddScoped<IAltaArticulo, AltaArticulo>();
+builder.Services.AddScoped<IAltaPedido, AltaPedido>();
 builder.Services.AddScoped<IBajaUsuario, BajaUsuario>();
+builder.Services.AddScoped<IBajaPedido, BajaPedido>();
 builder.Services.AddScoped<IEditarUsuario, EditarUsuario>();
 builder.Services.AddScoped<IBuscarClientePorRazonSocial, BuscarClientePorRazonSocial>();
 builder.Services.AddScoped<IBuscarClientePorMonto, BuscarClientePorMonto>();

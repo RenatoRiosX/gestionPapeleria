@@ -26,30 +26,41 @@ namespace Web.Controllers
 {
     public class PedidoController : Controller
 	{
-		private IRepositorioPedidos _repositorioPedidos = new RepositorioPedidosEF();
-		private IRepositorioArticulos _repositorioArticulos = new RepositorioArticulosEF();
-		private IRepositorioClientes _repositorioClientes = new RepositorioClientesEF();
-		private IRepositorioConfiguracion _repositorioConfiguracion = new RepositorioConfiguracionEF();
+		private IRepositorioPedidos _repositorioPedidos;
+		private IRepositorioArticulos _repositorioArticulos;
+		private IRepositorioClientes _repositorioClientes;
+		private IRepositorioConfiguracion _repositorioConfiguracion;
 		
-		private IGetAllPedidos _getAllPedidos;
+		
 		private IAltaPedido _altaPedido;
 		private IBajaPedido _bajaPedido;
-		private IGetAllClientes _getAllClientes;
+        private IAnularPedido _anularPedido;
+        private IGetAllPedidos _getAllPedidos;
+        private IGetAllClientes _getAllClientes;
 		private IGetAllArticulos _getAllArticulos;
 		private IGetClienteById _getById;
         private IGetPedidosPorFecha _getPedidosPorFecha;
-        private IAnularPedido _anularPedido;
+        
 
-        public PedidoController()
+        public PedidoController(IRepositorioPedidos repositorioPedidos, IRepositorioArticulos repositorioArticulos,
+            IRepositorioClientes repositorioClientes, IRepositorioConfiguracion repositorioConfiguracion,
+            IGetAllPedidos getAllPedidos, IGetAllArticulos getAllArticulos, IGetAllClientes getAllClientes, IGetClienteById getClienteById, IGetPedidosPorFecha getPedidosPorFecha,
+            IAltaPedido altaPedido, IBajaPedido bajaPedido, IAnularPedido anularPedido)
 		{
-			_altaPedido = new AltaPedido(_repositorioPedidos, _repositorioConfiguracion);
-			_bajaPedido = new BajaPedido(_repositorioPedidos);
-			_getAllClientes = new GetAllClientes(_repositorioClientes);
-			_getAllArticulos = new GetAllArticulos(_repositorioArticulos);
-			_getById = new GetClienteById(_repositorioClientes);
-			_getAllPedidos = new GetAllPedidos(_repositorioPedidos);
-			_getPedidosPorFecha = new GetPedidosPorFecha(_repositorioPedidos);
-            _anularPedido = new AnularPedido(_repositorioPedidos);
+            _repositorioPedidos = repositorioPedidos;
+            _repositorioArticulos = repositorioArticulos;
+            _repositorioClientes = repositorioClientes;
+            _repositorioConfiguracion = repositorioConfiguracion;
+
+
+            _altaPedido = altaPedido;
+			_bajaPedido = bajaPedido;
+            _anularPedido = anularPedido;
+            _getAllClientes = getAllClientes;
+			_getAllArticulos = getAllArticulos;
+			_getById = getClienteById;
+			_getAllPedidos = getAllPedidos;
+			_getPedidosPorFecha = getPedidosPorFecha;
         }
 
 		// GET: PedidoController

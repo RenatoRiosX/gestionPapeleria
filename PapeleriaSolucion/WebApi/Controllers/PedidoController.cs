@@ -11,12 +11,13 @@ namespace WebApi.Controllers
     [ApiController]
     public class PedidoController : ControllerBase
     {
-        IRepositorioPedidos _repositorioPedidos = new RepositorioPedidosEF();
+        IRepositorioPedidos _repositorioPedidos;
         IObtenerPedidosAnulados _obtenerPedidosAnulados;
 
-        public PedidoController()
+        public PedidoController(IRepositorioPedidos repositorioPedidos, IObtenerPedidosAnulados obtenerPedidosAnulados)
         {
-            _obtenerPedidosAnulados = new ObtenerPedidosAnulados(_repositorioPedidos);
+            _obtenerPedidosAnulados = obtenerPedidosAnulados;
+            _repositorioPedidos = repositorioPedidos;
         }
 
         // GET: api/<PedidoController>
