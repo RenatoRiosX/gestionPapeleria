@@ -29,7 +29,7 @@ namespace WebApi.Controllers
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
-		public ActionResult ListarArticulos()
+		public ActionResult<IEnumerable<ArticuloDto>> ListarArticulos()
 		{
 			
 			try

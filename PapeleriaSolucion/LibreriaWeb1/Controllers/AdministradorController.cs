@@ -17,7 +17,7 @@ namespace Web.Controllers
 {
     public class AdministradorController : Controller
     {
-        private IRepositorioUsuarios _repositorioUsuarios;
+        //private IRepositorioUsuarios _repositorioUsuarios;
 		private IAltaUsuario _alta;
         private IEditarUsuario _editarUsuario;
         private IBajaUsuario _baja;
@@ -25,7 +25,7 @@ namespace Web.Controllers
 
         public AdministradorController(IRepositorioUsuarios repositorioUsuarios, IAltaUsuario altaUsuario, IEditarUsuario editarUsuario, IBajaUsuario bajaUsuario)
         { 
-            _repositorioUsuarios = repositorioUsuarios;
+           // _repositorioUsuarios = repositorioUsuarios;
             _alta = altaUsuario;
             _editarUsuario = editarUsuario;
             _baja = bajaUsuario;

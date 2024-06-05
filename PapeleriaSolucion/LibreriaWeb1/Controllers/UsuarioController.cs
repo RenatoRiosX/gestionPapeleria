@@ -12,11 +12,11 @@ namespace Web.Controllers
 {
     public class UsuarioController : Controller
     {
-        private IRepositorioUsuarios _repositorioUsuarios;
+        //private IRepositorioUsuarios _repositorioUsuarios;
         private ILogin _login;
         public UsuarioController(IRepositorioUsuarios repositorioUsuarios, ILogin login)
         {
-			_repositorioUsuarios = repositorioUsuarios;
+			//_repositorioUsuarios = repositorioUsuarios;
             _login = login;
         }
 

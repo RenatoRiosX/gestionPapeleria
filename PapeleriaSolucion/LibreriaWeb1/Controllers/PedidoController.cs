@@ -26,10 +26,13 @@ namespace Web.Controllers
 {
     public class PedidoController : Controller
 	{
-		private IRepositorioPedidos _repositorioPedidos;
-		private IRepositorioArticulos _repositorioArticulos;
-		private IRepositorioClientes _repositorioClientes;
-		private IRepositorioConfiguracion _repositorioConfiguracion;
+		/*
+		 *
+		    private IRepositorioPedidos _repositorioPedidos;
+		    private IRepositorioArticulos _repositorioArticulos;
+		    private IRepositorioClientes _repositorioClientes;
+		    private IRepositorioConfiguracion _repositorioConfiguracion;
+		 */
 		
 		
 		private IAltaPedido _altaPedido;
@@ -46,11 +49,13 @@ namespace Web.Controllers
             IRepositorioClientes repositorioClientes, IRepositorioConfiguracion repositorioConfiguracion,
             IGetAllPedidos getAllPedidos, IGetAllArticulos getAllArticulos, IGetAllClientes getAllClientes, IGetClienteById getClienteById, IGetPedidosPorFecha getPedidosPorFecha,
             IAltaPedido altaPedido, IBajaPedido bajaPedido, IAnularPedido anularPedido)
-		{
-            _repositorioPedidos = repositorioPedidos;
-            _repositorioArticulos = repositorioArticulos;
-            _repositorioClientes = repositorioClientes;
-            _repositorioConfiguracion = repositorioConfiguracion;
+		{/*
+		  * 
+                _repositorioPedidos = repositorioPedidos;
+                _repositorioArticulos = repositorioArticulos;
+                _repositorioClientes = repositorioClientes;
+                _repositorioConfiguracion = repositorioConfiguracion;
+		  */
 
 
             _altaPedido = altaPedido;

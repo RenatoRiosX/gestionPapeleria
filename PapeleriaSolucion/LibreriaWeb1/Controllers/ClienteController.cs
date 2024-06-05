@@ -18,7 +18,7 @@ namespace Web.Controllers
     public class ClienteController : Controller
     {
 
-        private IRepositorioClientes _repositorioClientes;
+        //private IRepositorioClientes _repositorioClientes;
         private IBuscarClientePorRazonSocial _buscarCliente;
         private IBuscarClientePorMonto _buscarClientePorMonto;
         private IGetAllClientes _getAllClientes;
@@ -26,7 +26,7 @@ namespace Web.Controllers
         public ClienteController(IRepositorioClientes repositorioClientes, IBuscarClientePorRazonSocial buscarClientePorRazonSocial, 
             IBuscarClientePorMonto buscarClientePorMonto, IGetAllClientes getAllClientes)
         {
-            _repositorioClientes = repositorioClientes;
+            //_repositorioClientes = repositorioClientes;
             _buscarCliente = buscarClientePorRazonSocial;
             _buscarClientePorMonto = buscarClientePorMonto;
             _getAllClientes = getAllClientes;

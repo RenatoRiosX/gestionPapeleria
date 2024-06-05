@@ -111,10 +111,6 @@ public class RepositorioUsuariosEF : IRepositorioUsuarios
             // Actualiza los valores del usuario existente con los del nuevo usuario
             _db.Entry(usuarioExistente).CurrentValues.SetValues(usuarioNuevo);
 
-            //usuarioExistente.Email = usuarioNuevo.Email;
-            //usuarioExistente.NombreCompleto = usuarioNuevo.NombreCompleto;
-            //usuarioExistente.Contrasenia = usuarioNuevo.Contrasenia;
-            //usuarioExistente.ContraseniaSinEncriptar = usuarioNuevo.ContraseniaSinEncriptar;
             _db.SaveChanges();
         }
         catch (UsuarioNoValidoExeption ex)
